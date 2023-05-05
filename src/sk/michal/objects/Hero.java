@@ -1,24 +1,28 @@
 package sk.michal.objects;
 
+import sk.michal.objects.utils.Utils;
+
+
+
 public abstract class Hero {
     private int life;
     private int strength;
-    private int speed;
+    private int critical;
     private boolean isAttackable;
     private int defendCount;
 
-    public Hero(int life, int strength, int speed) {
+    public Hero(int life, int strength, int critical) {
         this.life = life;
         this.strength = strength;
-        this.speed = speed;
+        this.critical = critical;
         isAttackable=true;
         defendCount=0;
     }
 
-    public void attack(Hero hero){
+    protected void attack(Hero hero, int weaponHit){
         isAttackable=true;
         if (hero.isAttackable) {
-            int hit=strength+(speed/100*strength);
+            int hit= Utils.calculateHit(strength, critical) +weaponHit;
             hero.setLife(hero.getLife()-hit);
         }
 
@@ -28,7 +32,7 @@ public abstract class Hero {
         this.life = life;
     }
 
-    public boolean defend(){
+    protected boolean defend(){
         if (defendCount<=2){
             isAttackable=false;
             defendCount++;
@@ -45,7 +49,7 @@ public abstract class Hero {
         return strength;
     }
 
-    public int getSpeed() {
-        return speed;
+    public int getCritical() {
+        return critical;
     }
 }

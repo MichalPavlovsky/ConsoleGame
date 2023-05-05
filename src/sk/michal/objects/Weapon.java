@@ -9,6 +9,7 @@ public abstract class Weapon {
         this.critical = critical;
     }
 
+
     public int getStrenght() {
         return strenght;
     }
