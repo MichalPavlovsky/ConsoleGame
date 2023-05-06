@@ -1,6 +1,6 @@
 package sk.michal.objects;
 
-import sk.michal.objects.utils.Utils;
+import sk.michal.utils.Utils;
 
 public class Hunter extends Hero {
     private Weapon weapon;

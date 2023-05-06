@@ -1,4 +1,4 @@
-package sk.michal.objects.utils;
+package sk.michal.utils;
 
 public class Utils {
     public static int calculateHit(int strenght, int critical){
